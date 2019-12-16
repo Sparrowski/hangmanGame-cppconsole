@@ -1,14 +1,5 @@
 #include "Hangman.h"
 
-void Hangman::hangman_draw(){
-	
-	for(int i=0; i < m_BOARD_HEIGHT*m_BOARD_WIDTH; ++i){
-		if(i%10==0) std::cout<<std::endl;
-		std::cout << m_gameBoard[i];
-	}
-
-}
-
 void Hangman::set_start_board(char character){
 
 	hangman_parts = {52,54,43,33,23,13,4,5,6,7,18,28,38,37,39,47,49 };
@@ -31,3 +22,15 @@ bool Hangman::update_hangman(const int MAX_MISTAKES){
 	m_gameBoard[hangman_parts[m_current_mistakes-1]] = sign;	
 }
 
+std::ostream& operator<<(std::ostream& out, Hangman &h){
+	
+	const int BOARD_SIZE = h.m_BOARD_WIDTH*h.m_BOARD_HEIGHT;
+
+	for(int i = 0; i < BOARD_SIZE; ++i){
+		if(i%10 == 0) out << "\n";
+		out << h.m_gameBoard[i];
+	}
+
+	return out;
+
+}

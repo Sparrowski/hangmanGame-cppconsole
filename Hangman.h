@@ -6,14 +6,12 @@
 class Hangman{
 
 public:
-	Hangman() : m_BOARD_HEIGHT(6), m_BOARD_WIDTH(10), m_current_mistakes(0) { }
+	Hangman(const int HEIGHT, const int WIDTH) : m_BOARD_HEIGHT(HEIGHT), m_BOARD_WIDTH(WIDTH) { m_current_mistakes = 0; }
 
 	void set_start_board(const char); // sets starts board with char
-	bool update_hangman(const int);
+	bool update_hangman(const int); // updates hangman scratch, and also adds one mistake when is used
 
-
-	void hangman_draw(); // draws hangman
-
+	friend std::ostream& operator<<(std::ostream& out, Hangman &h);
 private:
 	const int m_BOARD_HEIGHT;
 	const int m_BOARD_WIDTH;
