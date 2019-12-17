@@ -1,0 +1,15 @@
+rower
+komputer
+niebieski
+miasto
+laptop
+biurko
+obraz
+minuta
+lampa
+hangman
+myszka
+klawiatura
+deska
+drzewo
+stolik
